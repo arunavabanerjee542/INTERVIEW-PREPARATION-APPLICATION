@@ -10,6 +10,20 @@ namespace INTERVIEW_PREPARATION
     {
         static void Main(string[] args)
         {
+
+            Department dep = new Department();
+
+            var x = dep.GetDepartment("CSE");
+
+        var subject = x.GetSubjects("OS");
+
+            subject.StartQuiz();
+
+           
+
+
+
+
         }
     }
 }
