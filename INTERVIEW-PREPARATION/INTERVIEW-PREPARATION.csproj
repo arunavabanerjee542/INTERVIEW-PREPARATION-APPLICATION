@@ -47,14 +47,21 @@
     <Compile Include="Computer Science\CSE.cs" />
     <Compile Include="Computer Science\DBMS.cs" />
     <Compile Include="Department.cs" />
+    <Compile Include="Electrical\DigitalElectronics.cs" />
+    <Compile Include="Electrical\Microprocessor.cs" />
     <Compile Include="Electronics\ECE.cs" />
     <Compile Include="Electrical\EEE.cs" />
     <Compile Include="Computer Science\OperatingSystems.cs" />
+    <Compile Include="Repositories\IQuestion.cs" />
+    <Compile Include="Repositories\IStartPreparation.cs" />
     <Compile Include="Participant.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />
+    <Compile Include="Services\DbmsQuestion.cs" />
+    <Compile Include="Services\OperatingSyatemsQuestions.cs" />
+    <Compile Include="Services\StartPreparation.cs" />
     <Compile Include="Subject.cs" />
   </ItemGroup>
   <ItemGroup>

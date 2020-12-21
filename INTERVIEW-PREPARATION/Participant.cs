@@ -9,7 +9,20 @@ namespace INTERVIEW_PREPARATION
     class Participant : Person
     {
         public Department dept;
-        public Subject sub;
-        public int MarksObtained; 
+        public string subject;
+        public int MarksObtained;
+        public int id;
+
+        public Participant(string n,int ID,Department d,string sub,int marks)
+        {
+            name = n;
+            id = ID;
+            subject = sub;
+            MarksObtained = marks;
+            dept = d;
+            
+        }
+
+
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace INTERVIEW_PREPARATION
+﻿using INTERVIEW_PREPARATION.Repositories;
+using INTERVIEW_PREPARATION.Services;
+
+namespace INTERVIEW_PREPARATION
 {
     public class OperatingSystems : CSE
     {
@@ -9,12 +12,33 @@
 
         }
 
-        int marks = 0;
+       
 
-        public override void StartQuiz()
+       
+
+        public override string ToString()
         {
-            System.Console.WriteLine("OS QUIZ STARTED ");
+
+            return "OPERATING SYSTEMS"; 
+
         }
+
+
+
+        public  int Start()
+        {
+            System.Console.WriteLine(" START OPERATING SYSTEM QUIZ ");
+            IQuestion ques = new OperatingSystemsQuestions();
+
+            int marks = ques.StartPrepration();
+
+            System.Console.WriteLine(marks);
+
+            return marks;
+
+
+        }
+
 
 
     }

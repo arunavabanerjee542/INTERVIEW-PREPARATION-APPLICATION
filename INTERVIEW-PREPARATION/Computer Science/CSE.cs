@@ -8,30 +8,49 @@ namespace INTERVIEW_PREPARATION
 {
     public  class CSE : Department
     {
+        List<Department> CSEsub;
 
-        public virtual void StartQuiz()
+/*
+        public override void StartQuiz(Department d, string s)
         {
-            // dummy just to call the child class overriden method
-        }
-        
-        
-        public override CSE GetSubjects(string s)
-        {
-            if(s.Equals("OS"))
-                {
-                Console.WriteLine("hjasdhcvjkcbkjcvbwklvjc");
-                return new OperatingSystems();
+            if(s.Equals("Operating Systems"))
+            {
+                new OperatingSystems().Start();
             }
             else
             {
-                return new DBMS();
+                new DBMS().Start();
             }
+        }
+*/
 
+        public override List<Department> GetDepartmentWiseSubjects()
+        {
+            CSEsub = new List<Department>()
+            {
+                new OperatingSystems(), new DBMS()
+            };
+
+            return CSEsub;
         }
 
 
 
 
-        
+        public override string ToString()
+        {
+            return "CSE";
+        }
+
+
+
+
+
     }
+
+
+
+
+        
+    
 }
