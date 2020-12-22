@@ -15,34 +15,20 @@ namespace INTERVIEW_PREPARATION
 
             IStartPreparation start = new StartPreparation();
 
-            Console.WriteLine(" TO START YOUR PREPARATION ENTER ---> 1 ");
-            Console.WriteLine(" ADMINISTRATOR SERVICES ENTER 2 ----> 2");
+        
 
-            int choice = 0;
+          
 
-
-            while (1 == 1)
-            {
-                try
-                {
-                    choice = Convert.ToInt32(Console.ReadLine());
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("INVALID CHOICE");
-                }
-
-                if (choice > 0 && choice <= 2)
-                {
-                    break;
-                }
-
-            }
+           
 
 
 
             while (1 == 1)
             {
+                Console.WriteLine(" TO START YOUR PREPARATION ENTER ---> 1 ");
+                Console.WriteLine(" ADMINISTRATOR SERVICES ENTER 2 ----> 2");
+                int choice = ValidateChoice();
+
                 switch (choice)
                 {
                     case 1:
@@ -64,6 +50,8 @@ namespace INTERVIEW_PREPARATION
 
 
                     case 2:
+                        Administrator admin = new Administrator();
+                        admin.AddQuestions();
                         break;
 
 
@@ -76,6 +64,34 @@ namespace INTERVIEW_PREPARATION
 
 
                }
+
+
+
+       static public int ValidateChoice()
+        {
+            int choice = 0;
+            while (1 == 1)
+            {
+               
+                try
+                {
+                    choice = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("INVALID CHOICE");
+                }
+
+                if (choice > 0 && choice <= 2)
+                {
+                    break;
+                }
+
+            }
+            return choice;
+        }
+
+
 
 
         }

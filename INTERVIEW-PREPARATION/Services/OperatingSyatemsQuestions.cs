@@ -9,100 +9,108 @@ namespace INTERVIEW_PREPARATION.Services
 {
     class OperatingSystemsQuestions : IQuestion
     {
+        static List<Question> os = new List<Question>();
+
+
         int marks=0;
+
+       
+
         public int StartPrepration()
         {
-            Question.SetQuestions("  Which of the following is not an operating system? ");
-            Question.SetOptions("Windows.",
-                "Linux",
-                "Oracle", 
-                "Dos");
 
-            int choice = Question.IsValidChoice();
+            AddFewDummyQuestions();
 
-            if (Question.IsValidAnswer(choice, 3))
+            foreach(var qest in os)
             {
-                Console.WriteLine("CORRECT ANSWER ");
-                marks++;
+                Console.WriteLine(qest.Qstring);
+                Console.WriteLine();
+                Console.WriteLine(qest.op1);
+                Console.WriteLine(qest.op2);
+                Console.WriteLine(qest.op3);
+                Console.WriteLine(qest.op4);
+
+                int choice = Question.IsValidChoice();
+
+                if (Question.IsValidAnswer(choice, qest.answer))
+                {
+                    Console.WriteLine("CORRECT ANSWER ");
+                    marks++;
+                }
+                else
+                {
+                    Console.WriteLine(" WRONG ANSWER ");
+                }
+
+
             }
-            else
-            {
-                Console.WriteLine(" WRONG ANSWER ");
-            }
-
-
-
-
-
-
-            Question.SetQuestions(" What is the maximum length of the filename in DOS?");
-            Question.SetOptions("4",
-                "5",
-                "8",
-                "12");
-
-            choice = Question.IsValidChoice();
-
-            if (Question.IsValidAnswer(choice, 3))
-            {
-                Console.WriteLine("CORRECT ANSWER ");
-                marks++;
-            }
-            else
-            {
-                Console.WriteLine(" WRONG ANSWER ");
-            }
-
-
-
-
-            Question.SetQuestions("When was the first operating system developed?");
-            Question.SetOptions("1994",
-                "1874",
-                "1950",
-                "1920");
-
-            choice = Question.IsValidChoice();
-
-            if (Question.IsValidAnswer(choice, 3))
-            {
-                Console.WriteLine("CORRECT ANSWER ");
-                marks++;
-            }
-            else
-            {
-                Console.WriteLine(" WRONG ANSWER ");
-            }
-
-
-
-            Question.SetQuestions(" When were MS windows operating systems proposed");
-            Question.SetOptions("1994",
-                "1878",
-                "1940",
-                "1984");
-
-            choice = Question.IsValidChoice();
-
-            if (Question.IsValidAnswer(choice, 4))
-            {
-                Console.WriteLine("CORRECT ANSWER ");
-                marks++;
-            }
-            else
-            {
-                Console.WriteLine(" WRONG ANSWER ");
-            }
-
 
 
 
 
             return marks;
 
+        }  // start preparation
 
 
 
+
+        public void AddQuestions()
+        {
+            Console.WriteLine(" Enter your question ");
+            string ques = Console.ReadLine();
+            Console.WriteLine(" ENTER 4 OPTIONS ");
+            string o1 = Console.ReadLine();
+            string o2 = Console.ReadLine();
+            string o3 = Console.ReadLine();
+            string o4 = Console.ReadLine();
+
+            Console.WriteLine(" Enter answer ");
+            int ans = Convert.ToInt32(Console.ReadLine());
+
+            os.Add(new Question(ques, o1, o2, o3, o4, ans));
+
+
+
+
+        }
+
+
+
+        public void AddFewDummyQuestions()
+        {
+            string q;
+            string o1;
+            string o2;
+            string o3;
+            string o4;
+
+            int ans;
+
+            q = " When were MS windows operating systems proposed";
+
+                o1 = "1984";
+                o2 = "1987";
+                o3 = "1478";
+                o4 = "1889";
+
+            ans = 1;
+
+            Question qs1 = new Question(q, o1, o2, o3, o4, ans);
+            os.Add(qs1);
+
+
+            q = " When was the first operating system developed ? ";
+
+            o1 = "1984";
+            o2 = "1950";
+            o3 = "1478";
+            o4 = "1889";
+
+            ans = 2;
+
+            Question qs2 = new Question(q, o1, o2, o3, o4, ans);
+            os.Add(qs2);
 
 
 
@@ -113,5 +121,17 @@ namespace INTERVIEW_PREPARATION.Services
 
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

@@ -39,6 +39,14 @@ namespace INTERVIEW_PREPARATION
 
         }
 
+        public void AddQuestion()
+        {
+            IQuestion q = new OperatingSystemsQuestions();
+            q.AddQuestions();
+        }
+
+
+
 
 
     }

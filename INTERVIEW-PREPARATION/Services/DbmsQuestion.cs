@@ -11,95 +11,115 @@ namespace INTERVIEW_PREPARATION.Services
     {
         int marks = 0;
 
+       static List<Question> db = new List<Question>();
+
+        public void AddQuestions()
+        {
+            Console.WriteLine(" Enter your question ");
+            string ques = Console.ReadLine();
+            Console.WriteLine(" ENTER 4 OPTIONS ");
+            string o1 = Console.ReadLine();
+            string o2 = Console.ReadLine();
+            string o3 = Console.ReadLine();
+            string o4 = Console.ReadLine();
+
+            Console.WriteLine(" Enter answer ");
+            int ans = Convert.ToInt32(Console.ReadLine());
+
+            db.Add(new Question(ques, o1, o2, o3, o4, ans));
+        }
+
         public int StartPrepration()
         {
 
-            Question.SetQuestions(" 1>> A logical schema ");
-            Question.SetOptions("Is the entire database.",
-                "describe data in terms of relational tables and columns, object-oriented classes, and XML tags.",
-                "Describes how data is actually stored on disk.", " BOTH Aand B");
+            AddFewDummyQuestions();
 
-            int choice = Question.IsValidChoice();
-
-            if (Question.IsValidAnswer(choice, 1))
+            foreach (var qest in db)
             {
-                Console.WriteLine("CORRECT ANSWER ");
-                marks++;
+                Console.WriteLine(qest.Qstring);
+                Console.WriteLine();
+                Console.WriteLine(qest.op1);
+                Console.WriteLine(qest.op2);
+                Console.WriteLine(qest.op3);
+                Console.WriteLine(qest.op4);
+
+                int choice = Question.IsValidChoice();
+
+                if (Question.IsValidAnswer(choice, qest.answer))
+                {
+                    Console.WriteLine("CORRECT ANSWER ");
+                    marks++;
+                }
+                else
+                {
+                    Console.WriteLine(" WRONG ANSWER ");
+                }
+
+
+
+                
             }
-            else
-            {
-                Console.WriteLine(" WRONG ANSWER ");
-            }
-
-
-
-
-
-            Question.SetQuestions(" Related fields in a database are grouped to form a ");
-            Question.SetOptions("	Data file.",
-                "Data record", "Menu", "Bank");
-
-
-
-             choice = Question.IsValidChoice();
-
-            if (Question.IsValidAnswer(choice, 2))
-            {
-                Console.WriteLine("CORRECT ANSWER ");
-                marks++;
-            }
-            else
-            {
-                Console.WriteLine(" WRONG ANSWER ");
-            }
-
-
-
-
-
-
-            Question.SetQuestions(" The way a particular application views the data from the database that the application uses is a");
-            Question.SetOptions("Module.",
-               "Relational model.",
-                "Schema", " Sub Schema");
-
-             choice = Question.IsValidChoice();
-
-            if (Question.IsValidAnswer(choice, 4))
-            {
-                Console.WriteLine("CORRECT ANSWER ");
-                marks++;
-            }
-            else
-            {
-                Console.WriteLine(" WRONG ANSWER ");
-            }
-
-
-            Question.SetQuestions(" What are the different view to present a Table ? ");
-            Question.SetOptions("Datasheet View",
-                "Pivote TableView", "Design View", "All Of Above");
-
-
-
-            choice = Question.IsValidChoice();
-
-            if (Question.IsValidAnswer(choice, 4))
-            {
-                Console.WriteLine("CORRECT ANSWER ");
-                marks++;
-            }
-            else
-            {
-                Console.WriteLine(" WRONG ANSWER ");
-            }
-
-
-
             return marks;
+
+        }
+
+
+
+
+
+
+        public void AddFewDummyQuestions()
+        {
+            string q;
+            string o1;
+            string o2;
+            string o3;
+            string o4;
+
+            int ans;
+
+            q = " When were MS windows operating systems proposed";
+
+            o1 = "1984";
+            o2 = "1987";
+            o3 = "1478";
+            o4 = "1889";
+
+            ans = 1;
+
+            Question qs1 = new Question(q, o1, o2, o3, o4, ans);
+            db.Add(qs1);
+
+
+            q = " When was the first operating system developed ? ";
+
+            o1 = "1984";
+            o2 = "1950";
+            o3 = "1478";
+            o4 = "1889";
+
+            ans = 2;
+
+            Question qs2 = new Question(q, o1, o2, o3, o4, ans);
+            db.Add(qs2);
+
+
+
+
+
+
 
 
 
         }
+
+
+
+
+
+
+
+
     }
 }
+

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace INTERVIEW_PREPARATION.Repositories
 {
-    interface IQuestion
+    interface IAdministratorControls
     {
-        int StartPrepration();
-        void AddQuestions();
+        void AddQuestion();
     }
 }

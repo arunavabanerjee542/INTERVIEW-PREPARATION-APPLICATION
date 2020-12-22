@@ -5,7 +5,38 @@ namespace INTERVIEW_PREPARATION
    public class Question
     {
 
-       public static void SetQuestions(string m)
+        public string Qstring;
+        public string op1;
+        public string op2;
+        public string op3;
+        public string op4;
+        public int answer;
+
+        public Question(string Q ,string opt1, string opt2, string opt3,
+            string opt4,int ans)
+            {
+
+            this.Qstring = Q;
+            this.op1 = opt1;
+            this.op2 = opt2;
+            this.op3 = opt3;
+            this.op4 = opt4;
+            this.answer = ans;
+
+
+        }
+
+
+        public override string ToString()
+        {
+            return Qstring + "   " + op1 + " " + op2 + " " + op3 + " " + op4;
+        }
+
+
+
+
+
+        public static void SetQuestions(string m)
         {
             System.Console.WriteLine(m);
         }
